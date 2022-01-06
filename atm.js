@@ -32,7 +32,7 @@ function countCurrency(amount)
         }
        
         // check if there is any amount pending to dispense if true swap 100 with two 50 notes
-        if (amount > 0) {
+        if (noteCounter[1] < 0) {
              noteCounter[0] -= 1
              noteCounter[1] += 2
         }   
