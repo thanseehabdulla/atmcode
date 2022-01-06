@@ -1,6 +1,6 @@
 function countCurrency(amount)
     {
-    
+        // initialize variable
         let notes = [  100, 50, 20 ];
         let noteCounter = Array(3).fill(0);
         
@@ -12,16 +12,18 @@ function countCurrency(amount)
             }
         }
         
-        console.log('amount', amount)
-        if (amount > 0 && amount < 20) {
+        // check if there is any amount pending to dispense if true remove one 50 note
+        if (amount > 0 && amount < 20) {             
         	noteCounter[1] -= 1
           amount += 50 
 
+          // check if there is any amount pending to dispense if true remove one 20 note  
           if(noteCounter[2] > 0) {
           noteCounter[2] -= 1
           amount += 20 
           }
 
+          // re calculate the amount and notes             
           if (amount >= notes[2]) {
                 console.log('amount', amount)
                 noteCounter[2] = Math.floor(amount / notes[2]);
@@ -29,11 +31,12 @@ function countCurrency(amount)
             }
         }
        
-        
-        console.log(noteCounter)
+        // check if there is any amount pending to dispense if true swap 100 with two 50 notes
+        if (amount > 0) {
+             noteCounter[0] -= 1
+             noteCounter[1] += 2
+        }   
     }
- 
-// driver code
  
     let amount = 170;
     countCurrency(amount);
